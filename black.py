@@ -23,11 +23,11 @@ dealer_hand = [deck.pop(), deck.pop()]
 
 
 def card_value(card):
-    """Returns the integer value of a single card."""
+    #Retornamos el valor de una sola carta
     rank = card[0]
     if rank in ranks[0:-4]:
         return int(rank)
-    elif rank is 'ACE':
+    elif rank is 'A':
         return 11
     else:
         return 10
@@ -35,23 +35,21 @@ def card_value(card):
 
 def hand_value(hand):
     """Returns the integer value of a set of cards."""
-    # Naively sum up the cards in the deck.
+    #Vamos sumando de a poco el valor de las cartas
     tmp_value = sum(card_value(_) for _ in hand)
     # Count the number of Aces in the hand.
-    num_aces = len([_ for _ in hand if _[0] is 'ACE'])
+    num_aces = len([_ for _ in hand if _[0] is 'A'])
 
-    # Aces can count for 1, or 11. If it is possible to bring the value of
-    # the hand under 21 by making 11 -> 1 substitutions, do so.
+    #Como "A" puede llegar de 1 a 11 ,entonces nos toca ir revisando 
     while num_aces > 0:
 
-        if tmp_value > 21 and 'ACE' in ranks:
+        if tmp_value > 21 and 'A' in ranks:
             tmp_value -= 10
             num_aces -= 1
         else:
             break
 
-    # Return a string and an integer representing the value of the hand. If
-    # the hand is bust, return 100.
+    #Retorna un string del valor de la baraja . Si sobre pasa , retorna 100
     if tmp_value < 21:
         return [str(tmp_value), tmp_value]
     elif tmp_value == 21:
@@ -59,21 +57,19 @@ def hand_value(hand):
     else:
         return ['Bust!', 100]
 
-# As long as the player remains in the game, ask them if they'd  like to hit
-# for another card, or stay with their current hand.
+#Siempre y cuando el jugador siga en el juego , le preguntamos si quiere recibir alguna otra carta 
 while player_in:
-    # Display the player's current hand, as well as its value.
+    # Mostramos la baraja del jugador al igual que la cantidad que tiene
     current_score_str = '''\nYou are currently at %s\nwith the hand %s\n'''
     print (current_score_str % (hand_value(player_hand)[0], player_hand))
-    # If the player's hand is bust, don't ask them for a decision.
+    # Si ya sobrepaso los 21 , dejar de preguntarle al jugador si sigue
     if hand_value(player_hand)[1] == 100:
         break
 
     if player_in:
         response = int(input('Hit or stay? (Hit = 1, Stay = 0)'))
-        # If the player asks to be hit, take the first card from the top of
-        # deck and add it to their hand. If they ask to stay, change
-        # player_in to false, and move on to the dealer's hand.
+        #Si el jugador pide seguir , coger la primera carta y ponerla en su baraja, si no retornamos False y
+        #nos devolvemos a la baraja del dealer
         if response:
             player_in = True
             new_player_card = deck.pop()
@@ -106,3 +102,5 @@ elif player_score == dealer_score:
     print ('You tied the dealer, nobody wins.')
 elif player_score < dealer_score:
     print ("Dealer wins!")
+
+#Developed by Pedro Gómez / ID:000396221
