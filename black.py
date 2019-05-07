@@ -17,7 +17,7 @@ shuffle(deck)
 # Creamos una valor booleano para establecer cuando el jugador sigue vivo o no
 player_in = True
 
-# issue the player and dealer their first two cards
+# Distribuimos las cartas a los dos jugadores
 player_hand = [deck.pop(), deck.pop()]
 dealer_hand = [deck.pop(), deck.pop()]
 
