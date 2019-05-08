@@ -104,13 +104,13 @@ def blackjack_game():
     elif player_score < dealer_score:
         print ("Dealer wins!")
 
-    restart=input("want to play again?, Yes/No: ")
+    restart=input("Want to play again?, Yes/No: ")
     if restart.lower()=="yes":
         blackjack_game()
     else:
-        print("thanks for playing, have a good day.")
+        print("Thanks for playing, have a nice day.")
  except:
-     print(" you have do something wrong")
+     print("You have done something wrong")
      error=input("Want to restart the game? yes/no: ")
      #En el posible caso que el error ocurra, se le imprimira una opcion de volver a intentarlo para que el usuario no se que anodado a la situacion de error
      if error.lower()=="yes":
@@ -120,7 +120,7 @@ def blackjack_game():
          else:
              print("Have a good day.")
      else:
-         print("Ok, you can leave now")
+         print("Ok, you can leave now.")
 
 
 
