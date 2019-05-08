@@ -111,7 +111,7 @@ def blackjack_game():
         print("thanks for playing, have a good day.")
  except:
      print(" you have do something wrong")
-     error=input("want to restart the game? yes/no: ")
+     error=input("Want to restart the game? yes/no: ")
      #En el posible caso que el error ocurra, se le imprimira una opcion de volver a intentarlo para que el usuario no se que anodado a la situacion de error
      if error.lower()=="yes":
          if start.lower() == "yes":
@@ -120,7 +120,7 @@ def blackjack_game():
          else:
              print("Have a good day.")
      else:
-         print("ok, you can leave now")
+         print("Ok, you can leave now")
 
 
 
@@ -130,7 +130,7 @@ start=input("You want to play some blackjack?: Yes/No: ")
 #Si la persona llegara a cometer el error de escribir algo aparte de lo pedido, le reiterara que debe escribirlo bien.
 if start.lower()!="yes" and start.lower()!="no":
     while start.lower()!="yes" and start.lower()!="no":
-        start=input("please write yes or no: ")
+        start=input("Please write yes or no: ")
 
 
 #Si la persona llegara a aceptar, comenzaria todo el proceso de nuestra funcion.
@@ -142,5 +142,5 @@ else:
 
 
 
-#Developed by Pedro Felipe Gomez Villa/ ID:000396221
-#             Camilo Andres Serrano Pertuz/ ID: 000404139
+#Developed by Pedro Felipe Gomez Bonilla/ ID:000396221
+#and Camilo Andres Serrano Pertuz/ ID: 000404139
