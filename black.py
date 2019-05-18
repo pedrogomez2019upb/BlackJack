@@ -3,7 +3,7 @@
 from random import shuffle
 # Definimos mediante un rango de 2 a 11 los ranks y suits
 ranks = [_ for _ in range(2, 11)] + ['J', 'Q', 'K', 'A']
-suits = ['♠', '♥', '♦', '	♣ ']
+suits = ['♠', '♥', '♦', '♣']
 def blackjack_game():
  #Este try and except lo creamos en el caso hipotetico que el usuario cometiera un error de digitacion
  try:
